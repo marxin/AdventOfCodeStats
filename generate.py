@@ -47,6 +47,7 @@ def generate_users_for_puzzle(p):
     ax.set_xlabel('Time (in hours)')
     ax.set_ylabel('Users')
     ax.grid(True)
+    ax.vlines(thresholds[p][0], 0, ax.get_ylim()[1])
     plt.savefig(f'puzzle{p:02d}-users.svg')
 
 def generate_first_N(N, index):
@@ -55,7 +56,7 @@ def generate_first_N(N, index):
     labels = [f'Day {x}' for x in puzzles.keys()]
 
     name = 'one star' if index % 2 == 0 else 'two stars'
-    y = [x[index] for x in thresholds.values()]
+    y = [x[index] for x in thresholds.values()]    
     ax.bar(labels, y, label=f'First {N} ({name})')
     ax.legend()
     ax.set_ylabel('Time (in hours)')
@@ -82,7 +83,7 @@ generate_first_N(THRESHOLD2, 3)
 with open('README.md', 'w') as readme:
     for day in puzzles.keys():
         readme.write('# Day 1\n')
-        readme.write(f'![](/puzzle{day:02d}-users.svg "Day {day}")\n')
+        readme.write(f'![](/puzzle{day:02d}-users.svg "Day {day} - stars for users")\n')
     readme.write('# Advent of Code 2020 Statistics\n')
     readme.write('## First 100 users\n')
     readme.write('![](/first-100-one-star.svg "First 100 users (one star)")\n')

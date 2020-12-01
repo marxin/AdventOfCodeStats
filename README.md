@@ -1,5 +1,5 @@
 # Day 1
-![](/puzzle01-users.svg "Day 1")
+![](/puzzle01-users.svg "Day 1 - stars for users")
 # Advent of Code 2020 Statistics
 ## First 100 users
 ![](/first-100-one-star.svg "First 100 users (one star)")
