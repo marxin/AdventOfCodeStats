@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import xml.etree.ElementTree as ET
 
@@ -27,7 +27,7 @@ def parse_file(path, offset):
                 thresholds[day] = [0, 0, 0, 0]
             both = int(root[0].text)
             first = int(root[1].text) + both
-            tick = offset.total_seconds() / 60**2
+            tick = (offset + timedelta(days=day - 1)).total_seconds() / 60**2
             puzzles[day].append((tick, first, both))
             if thresholds[day][0] == 0 and first >= THRESHOLD:
                 thresholds[day][0] = tick
