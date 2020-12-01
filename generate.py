@@ -84,4 +84,4 @@ generate_first_N(THRESHOLD2, 3)
 with open('README.md', 'w') as readme:
     readme.write('# Advent of Code 2020 Statistics\n')
     readme.write('## First 100 users\n')
-    readme.write('![First N users](/first-100-one-star.svg "First N users (one star)")\n')
+    readme.write('!(/first-100-one-star.svg "First N users (one star)")\n')
