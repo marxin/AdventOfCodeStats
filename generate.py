@@ -55,10 +55,10 @@ def generate_first_N(N, index):
     labels = [f'Day {x}' for x in puzzles.keys()]
 
     name = 'one star' if index % 2 == 0 else 'two stars'
-    y = [x[index] for x in thresholds.values()]    
+    y = [x[index] * 60 for x in thresholds.values()]    
     ax.bar(labels, y, label=f'First {N} ({name})')
     ax.legend()
-    ax.set_ylabel('Time (in hours)')
+    ax.set_ylabel('Time (in minutes)')
     name = 'one-star' if index % 2 == 0 else 'two-stars'
     filename = f'first-{N}-{name}.svg'
     plt.savefig(filename)
