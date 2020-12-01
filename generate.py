@@ -66,6 +66,7 @@ def generate_first_N(N, index):
     ax.set_xticklabels(labels)
     ax.legend()
     ax.set_ylabel('Time (in minutes)')
+    ax.grid(True)
     filename = f'first-{N}.svg'
     plt.savefig(filename)
 
