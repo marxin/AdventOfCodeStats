@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 
 import matplotlib
 import matplotlib.pyplot as plt
+import numpy as np
 
 START = datetime(2020, 12, 1, 5)
 PUZZLES = 25
@@ -53,14 +54,19 @@ def generate_first_N(N, index):
     width = 0.35
     fig, ax = plt.subplots(figsize=(10, 5))
     labels = [f'Day {x}' for x in puzzles.keys()]
+    x = np.arange(len(labels))  # the label locations
 
-    name = 'one star' if index % 2 == 0 else 'two stars'
-    y = [x[index] * 60 for x in thresholds.values()]    
-    ax.bar(labels, y, label=f'First {N} ({name})')
+    y1 = [x[index] * 60 for x in thresholds.values()]    
+    ax.bar(x - width / 2, y1, width, label=f'First {N} (one star)')
+
+    y2 = [x[index + 1] * 60 for x in thresholds.values()]    
+    ax.bar(x + width / 2, y2, width, label=f'First {N} (two stars)')
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
     ax.legend()
     ax.set_ylabel('Time (in minutes)')
-    name = 'one-star' if index % 2 == 0 else 'two-stars'
-    filename = f'first-{N}-{name}.svg'
+    filename = f'first-{N}.svg'
     plt.savefig(filename)
 
 for f in sorted(os.listdir(DATADIR)):
@@ -74,10 +80,7 @@ for puzzle in puzzles.keys():
 
 # generate first N bars
 generate_first_N(THRESHOLD, 0)
-generate_first_N(THRESHOLD, 1)
-
 generate_first_N(THRESHOLD2, 2)
-generate_first_N(THRESHOLD2, 3)
 
 with open('README.md', 'w') as readme:
     for day in puzzles.keys():
@@ -85,8 +88,6 @@ with open('README.md', 'w') as readme:
         readme.write(f'![](/puzzle{day:02d}-users.svg "Day {day} - stars for users")\n')
     readme.write('# Advent of Code 2020 Statistics\n')
     readme.write('## First 100 users\n')
-    readme.write('![](/first-100-one-star.svg "First 100 users (one star)")\n')
-    readme.write('![](/first-100-two-stars.svg "First 100 users (two stars)")\n')
+    readme.write('![](/first-100.svg "First 100 users")\n')
     readme.write('## First 1000 users\n')
-    readme.write('![](/first-1000-one-star.svg "First 1000 users (one star)")\n')
-    readme.write('![](/first-1000-two-stars.svg "First 1000 users (two stars)")\n')
+    readme.write('![](/first-1000.svg "First 1000 users")\n')
