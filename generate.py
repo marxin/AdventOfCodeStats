@@ -69,8 +69,6 @@ for f in sorted(os.listdir(DATADIR)):
     if datestamp > START:
         parse_file(os.path.join(DATADIR, f), datestamp - START)
 
-#print(puzzles)
-print(thresholds)
 for puzzle in puzzles.keys():
     generate_users_for_puzzle(puzzle)
 
@@ -82,6 +80,9 @@ generate_first_N(THRESHOLD2, 2)
 generate_first_N(THRESHOLD2, 3)
 
 with open('README.md', 'w') as readme:
+    for day in puzzles.keys():
+        readme.write('# Day 1\n')
+        readme.write(f'![](/puzzle{day:02d}-users.svg "Day {day}")\n')
     readme.write('# Advent of Code 2020 Statistics\n')
     readme.write('## First 100 users\n')
     readme.write('![](/first-100-one-star.svg "First 100 users (one star)")\n')
