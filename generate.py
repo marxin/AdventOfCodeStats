@@ -84,10 +84,10 @@ generate_first_N(THRESHOLD, 0)
 generate_first_N(THRESHOLD2, 2)
 
 with open('README.md', 'w') as readme:
-    for day in puzzles.keys():
-        readme.write('# Day 1\n')
-        readme.write(f'![](/puzzle{day:02d}-users.svg "Day {day} - stars for users")\n')
     readme.write('# Advent of Code 2020 Statistics\n')
+    for day in puzzles.keys():
+        readme.write('## Day 1\n')
+        readme.write(f'![](/puzzle{day:02d}-users.svg "Day {day} - stars for users")\n')
     readme.write('## First 100 users\n')
     readme.write('![](/first-100.svg "First 100 users")\n')
     readme.write('## First 1000 users\n')
