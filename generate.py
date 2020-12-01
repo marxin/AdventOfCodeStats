@@ -60,10 +60,10 @@ def generate_first_N(N, index):
     x = np.arange(len(labels))  # the label locations
 
     y1 = [x[index] * 60 for x in thresholds.values()]    
-    ax.bar(x - width / 2, y1, width, label=f'First {N} (one star)')
+    ax.bar(x - width / 2, y1, width, label=f'First {N} (one star)', color='silver')
 
     y2 = [x[index + 1] * 60 for x in thresholds.values()]    
-    ax.bar(x + width / 2, y2, width, label=f'First {N} (two stars)')
+    ax.bar(x + width / 2, y2, width, label=f'First {N} (two stars)', color='gold')
 
     ax.set_xticks(x)
     ax.set_xticklabels(labels)
