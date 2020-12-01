@@ -47,7 +47,6 @@ def generate_users_for_puzzle(p):
     ax.set_xlabel('Time (in hours)')
     ax.set_ylabel('Users')
     ax.grid(True)
-    ax.vlines(thresholds[p][0], 0, ax.get_ylim()[1])
     plt.savefig(f'puzzle{p:02d}-users.svg')
 
 def generate_first_N(N, index):
