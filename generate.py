@@ -73,11 +73,14 @@ def generate_first_N(N, index):
     filename = f'first-{N}.svg'
     plt.savefig(filename)
 
-for f in sorted(os.listdir(DATADIR)):
+datafiles = sorted(os.listdir(DATADIR))
+print(f'Processing {len(datafiles)} data files')
+for f in datafiles:
     stamp = f.split('.')[0]
     datestamp = datetime.fromisoformat(stamp)
     if datestamp > START:
         parse_file(os.path.join(DATADIR, f), datestamp - START)
+print('Generating graphs')
 
 for puzzle in puzzles.keys():
     generate_users_for_puzzle(puzzle)
