@@ -43,7 +43,7 @@ def generate_users_for_puzzle(p):
 
     ax.plot([x[0] for x in puzzles[p]], [x[1] for x in puzzles[p]], label='One star')
     ax.plot([x[0] for x in puzzles[p]], [x[2] for x in puzzles[p]], label='Two stars')
-    ax.set_title('Day 1 - stars for users')
+    ax.set_title(f'Day {p} - stars for users')
     ax.set_xlabel('Time (in hours)')
     ax.set_ylabel('Users')
     ylim = ax.get_ylim()[1]
