@@ -59,6 +59,7 @@ def generate_first_N(N, index):
     labels = [f'Day {x}' for x in puzzles.keys()]
     x = np.arange(len(labels))  # the label locations
 
+    ax.set_title(f'Time for first {N} users')
     y1 = [x[index] * 60 for x in thresholds.values()]    
     ax.bar(x - width / 2, y1, width, label=f'First {N} (one star)', color='silver')
 
