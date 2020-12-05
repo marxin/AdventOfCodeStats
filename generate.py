@@ -53,6 +53,25 @@ def generate_users_for_puzzle(p):
     ax.legend()
     plt.savefig(f'puzzle{p:02d}-users.svg')
 
+def generate_users_for_all_puzzles():
+    fig, ax = plt.subplots(figsize=(10, 5))
+    for day in puzzles.keys():
+       ax.plot([x[0] / 24 + day - 1 for x in puzzles[day]],
+               [x[1] for x in puzzles[day]],
+               color='tab:blue',
+               label='One star' if day == 1 else None)
+       ax.plot([x[0] / 24 + day - 1 for x in puzzles[day]],
+               [x[2] for x in puzzles[day]],
+               color='tab:orange',
+               label='Two stars' if day == 1 else None)
+
+    ax.set_title(f'Stars for users')
+    ax.set_xlabel('Time (in days)')
+    ax.set_ylabel('Users')
+    ax.grid(True)
+    ax.legend()
+    plt.savefig(f'puzzles-users.svg')
+
 def generate_first_N(N, index):
     width = 0.35
     fig, ax = plt.subplots(figsize=(10, 5))
@@ -85,6 +104,7 @@ print('Generating graphs')
 
 for puzzle in puzzles.keys():
     generate_users_for_puzzle(puzzle)
+generate_users_for_all_puzzles()
 
 # generate first N bars
 generate_first_N(THRESHOLD, 0)
@@ -92,6 +112,8 @@ generate_first_N(THRESHOLD2, 2)
 
 with open('README.md', 'w') as readme:
     readme.write('# Advent of Code 2020 Statistics\n')
+    readme.write('## Starts for users\n')
+    readme.write('![](/puzzles-users.svg "Starts for users")\n')
     readme.write('## First 100 users\n')
     readme.write('![](/first-100.svg "First 100 users")\n')
     readme.write('## First 1000 users\n')

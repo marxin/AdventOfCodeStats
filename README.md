@@ -1,4 +1,6 @@
 # Advent of Code 2020 Statistics
+## Starts for users
+![](/puzzles-users.svg "Starts for users")
 ## First 100 users
 ![](/first-100.svg "First 100 users")
 ## First 1000 users
