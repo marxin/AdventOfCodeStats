@@ -65,7 +65,7 @@ def generate_users_for_all_puzzles():
                color='tab:orange',
                label='Two stars' if day == 1 else None)
 
-    ax.set_title(f'Stars for users')
+    ax.set_title(f'Users per Puzzle')
     ax.set_xlabel('Time (in days) (NOTE: Day 1 puzzle starts at 0)')
     ax.set_ylabel('Users')
     ax.grid(True)
