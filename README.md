@@ -19,3 +19,5 @@
 ![](/puzzle06-users.svg "Day 6 - stars for users")
 ## Day 7
 ![](/puzzle07-users.svg "Day 7 - stars for users")
+## Day 8
+![](/puzzle08-users.svg "Day 8 - stars for users")
