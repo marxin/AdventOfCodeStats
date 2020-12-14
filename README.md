@@ -31,3 +31,5 @@
 ![](/puzzle12-users.svg "Day 12 - stars for users")
 ## Day 13
 ![](/puzzle13-users.svg "Day 13 - stars for users")
+## Day 14
+![](/puzzle14-users.svg "Day 14 - stars for users")
