@@ -41,10 +41,10 @@ def parse_file(path, offset):
 def generate_users_for_puzzle(p):
     fig, ax = plt.subplots(figsize=(10, 5))
 
-    ax.plot([x[0] for x in puzzles[p]], [x[1] for x in puzzles[p]], label='One star')
-    ax.plot([x[0] for x in puzzles[p]], [x[2] for x in puzzles[p]], label='Two stars')
+    ax.plot([x[0] / 24 for x in puzzles[p]], [x[1] for x in puzzles[p]], label='One star')
+    ax.plot([x[0] / 24 for x in puzzles[p]], [x[2] for x in puzzles[p]], label='Two stars')
     ax.set_title(f'Day {p} - stars for users')
-    ax.set_xlabel('Time (in hours)')
+    ax.set_xlabel('Time (in days)')
     ax.set_ylabel('Users')
     ylim = ax.get_ylim()[1]
     ax.vlines(thresholds[p][0], 0, ylim, colors=['silver'], label='First 100 (one star)', lw=0.4)
