@@ -75,7 +75,7 @@ def generate_users_for_all_puzzles():
 def generate_first_N(N, index):
     width = 0.35
     fig, ax = plt.subplots(figsize=(10, 5))
-    labels = [f'Day {x}' for x in puzzles.keys()]
+    labels = puzzles.keys()
     x = np.arange(len(labels))  # the label locations
 
     ax.set_title(f'Time for first {N} users')
@@ -87,6 +87,7 @@ def generate_first_N(N, index):
 
     ax.set_xticks(x)
     ax.set_xticklabels(labels)
+    ax.set_xlabel('Days')
     ax.legend()
     ax.set_ylabel('Time (in minutes)')
     ax.grid(True)
