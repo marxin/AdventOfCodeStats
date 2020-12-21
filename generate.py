@@ -47,8 +47,8 @@ def generate_users_for_puzzle(p):
     ax.set_xlabel('Time (in days)')
     ax.set_ylabel('Users')
     ylim = ax.get_ylim()[1]
-    ax.vlines(thresholds[p][0], 0, ylim, colors=['silver'], label='First 100 (one star)', lw=0.4)
-    ax.vlines(thresholds[p][1], 0, ylim, colors=['gold'], label='First 100 (two stars)', lw=0.4)
+    ax.vlines(thresholds[p][0] / 24, 0, ylim, colors=['silver'], label='First 100 (one star)', lw=0.4)
+    ax.vlines(thresholds[p][1] / 24, 0, ylim, colors=['gold'], label='First 100 (two stars)', lw=0.4)
     ax.grid(True)
     ax.legend()
     plt.savefig(f'puzzle{p:02d}-users.svg')
