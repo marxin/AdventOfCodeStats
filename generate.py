@@ -55,7 +55,7 @@ def generate_users_for_puzzle(p):
 
 def generate_users_for_all_puzzles():
     fig, ax = plt.subplots(figsize=(10, 5))
-    lw = 0.5
+    lw = 0.65
     for day in puzzles.keys():
        ax.plot([x[0] / 24 + day - 1 for x in puzzles[day]],
                [x[1] for x in puzzles[day]],
