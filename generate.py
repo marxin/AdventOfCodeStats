@@ -40,10 +40,9 @@ def parse_file(path, offset):
 
 def generate_users_for_puzzle(p):
     fig, ax = plt.subplots(figsize=(10, 5))
-    lw = 0.35
 
-    ax.plot([x[0] / 24 for x in puzzles[p]], [x[1] for x in puzzles[p]], label='One star', lw=lw)
-    ax.plot([x[0] / 24 for x in puzzles[p]], [x[2] for x in puzzles[p]], label='Two stars', lw=lw)
+    ax.plot([x[0] / 24 for x in puzzles[p]], [x[1] for x in puzzles[p]], label='One star')
+    ax.plot([x[0] / 24 for x in puzzles[p]], [x[2] for x in puzzles[p]], label='Two stars')
     ax.set_title(f'Day {p} - stars for users')
     ax.set_xlabel('Time (in days)')
     ax.set_ylabel('Users')
@@ -56,14 +55,17 @@ def generate_users_for_puzzle(p):
 
 def generate_users_for_all_puzzles():
     fig, ax = plt.subplots(figsize=(10, 5))
+    lw = 0.5
     for day in puzzles.keys():
        ax.plot([x[0] / 24 + day - 1 for x in puzzles[day]],
                [x[1] for x in puzzles[day]],
                color='tab:blue',
+               lw=lw,
                label='One star' if day == 1 else None)
        ax.plot([x[0] / 24 + day - 1 for x in puzzles[day]],
                [x[2] for x in puzzles[day]],
                color='tab:orange',
+               lw=lw,
                label='Two stars' if day == 1 else None)
 
     ax.set_title(f'Users per Puzzle')
