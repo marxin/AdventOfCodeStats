@@ -40,7 +40,7 @@ def parse_file(path, offset):
 
 def generate_users_for_puzzle(p):
     fig, ax = plt.subplots(figsize=(10, 5))
-    lw = 0.5
+    lw = 0.35
 
     ax.plot([x[0] / 24 for x in puzzles[p]], [x[1] for x in puzzles[p]], label='One star', lw=lw)
     ax.plot([x[0] / 24 for x in puzzles[p]], [x[2] for x in puzzles[p]], label='Two stars', lw=lw)
