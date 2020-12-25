@@ -20,6 +20,9 @@ thresholds = {}
 def parse_file(path, offset):
     for line in open(path).readlines():
         if '/2020/day' in line:
+            i = line.index('<a href')
+            if i > 0:
+                line = line[i:]
             root = ET.fromstring(line)
             day = int(root.text)
             if not day in puzzles:
