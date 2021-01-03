@@ -119,7 +119,7 @@ generate_first_N(THRESHOLD2, 2)
 
 with open('README.md', 'w') as readme:
     readme.write('# Advent of Code 2020 Statistics\n')
-    readme.write('## Starts for users\n')
+    readme.write('## Stars for users\n')
     readme.write('![](/puzzles-users.svg "Starts for users")\n')
     readme.write('## First 100 users\n')
     readme.write('![](/first-100.svg "First 100 users")\n')
